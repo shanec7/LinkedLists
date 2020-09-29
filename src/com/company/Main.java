@@ -51,4 +51,22 @@ public class Main {
 
         return dummy.next;
     }
+
+    // Did not test
+    // need to add functionality to have a node point to a node in the list
+    // tested on leetcode https://leetcode.com/problems/linked-list-cycle/submissions/
+    // Runtime: O(N) where N is the number of nodes in our list.
+    //Space complexity: O(1) or constant.
+    public static boolean containsCycle(Node head) {
+        Node slow = head;
+        Node fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if(slow == fast) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
